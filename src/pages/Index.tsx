@@ -8,11 +8,14 @@ const MINECRAFT_BG = "https://cdn.poehali.dev/projects/1384eebe-00f7-4e79-9042-4
 const NAV_ITEMS = ["Главная", "Уровни", "Донаты", "Достижения", "Кабинет"];
 
 const DONATE_LEVELS = [
-  { id: 1, name: "Новичок", emoji: "🪨", color: "#9ca3af", glow: "#9ca3af", price: 99, perks: ["Звание в чате", "+5% к опыту", "Доступ к /kit starter"] },
-  { id: 2, name: "Искатель", emoji: "⚔️", color: "#22c55e", glow: "#22c55e", price: 299, perks: ["Зелёный ник", "+10% к опыту", "Kit каждые 24ч", "Доступ к /fly (1ч/день)"] },
-  { id: 3, name: "Элита", emoji: "💎", color: "#3b82f6", glow: "#60a5fa", price: 699, perks: ["Синий ник с эффектом", "+20% к опыту", "Kit каждые 12ч", "/fly неограничено", "Префикс [Elite]"] },
-  { id: 4, name: "Легенда", emoji: "🔥", color: "#f97316", glow: "#fb923c", price: 1499, perks: ["Огненный ник", "+35% к опыту", "Kit каждые 6ч", "Уникальные питомцы", "Доступ к /god (30мин)", "Префикс [Legend]"] },
-  { id: 5, name: "Монарх", emoji: "👑", color: "#a855f7", glow: "#c084fc", price: 3000, perks: ["Фиолетовый ник + частицы", "+50% ко всему", "Kit каждый час", "Безлимитный /fly", "/god без ограничений", "Эксклюзивный плащ", "Тень-компаньон", "Доступ к закрытой зоне"] },
+  { id: 1, name: "Ранг E", emoji: "🪨", color: "#9ca3af", glow: "#9ca3af", price: 99, perks: ["Звание [E] в чате", "+5% к опыту", "Доступ к /kit starter"] },
+  { id: 2, name: "Ранг D", emoji: "🗡️", color: "#22c55e", glow: "#22c55e", price: 199, perks: ["Зелёный ник [D]", "+10% к опыту", "Kit каждые 24ч", "/fly 30 мин/день"] },
+  { id: 3, name: "Ранг C", emoji: "🔵", color: "#3b82f6", glow: "#60a5fa", price: 300, perks: ["Синий ник [C]", "+15% к опыту", "Kit каждые 18ч", "/fly 1ч/день", "Префикс [C]"] },
+  { id: 4, name: "Ранг B", emoji: "⚡", color: "#eab308", glow: "#facc15", price: 500, perks: ["Жёлтый ник [B]", "+20% к опыту", "Kit каждые 12ч", "/fly неограничено", "Доступ к /back"] },
+  { id: 5, name: "Ранг A", emoji: "🔥", color: "#f97316", glow: "#fb923c", price: 1000, perks: ["Огненный ник [A]", "+30% к опыту", "Kit каждые 6ч", "Уникальные питомцы", "/god на 30 мин", "Префикс [A]"] },
+  { id: 6, name: "Ранг S", emoji: "💎", color: "#e11d48", glow: "#fb7185", price: 1799, perks: ["Красный ник + частицы [S]", "+40% ко всему", "Kit каждые 3ч", "/god на 1ч", "Эффекты при входе", "Префикс [S]"] },
+  { id: 7, name: "Нац. Охотник", emoji: "🏹", color: "#06b6d4", glow: "#67e8f9", price: 2999, perks: ["Уникальный голубой ник", "+45% ко всему", "Kit каждый час", "/god неограничено", "Эксклюзивный плащ", "Компаньон-тень", "Приватный регион"] },
+  { id: 8, name: "Monarch", emoji: "👑", color: "#a855f7", glow: "#c084fc", price: 4000, perks: ["Фиолетовый ник + ауры", "+50% ко всему", "Kit каждые 30мин", "/god без ограничений", "Плащ Монарха", "Армия теней", "Закрытая зона Монарха", "Частицы при ходьбе"] },
 ];
 
 const ACHIEVEMENTS = [
@@ -278,13 +281,13 @@ export default function Index() {
                   style={{
                     background: "linear-gradient(180deg, rgba(20,0,40,0.95) 0%, rgba(10,0,20,0.98) 100%)",
                     border: `2px solid ${lvl.color}50`,
-                    boxShadow: lvl.id === 5 ? `0 0 40px ${lvl.glow}40, 0 0 80px ${lvl.glow}15` : `0 0 20px ${lvl.glow}20`,
+                    boxShadow: lvl.id === 8 ? `0 0 40px ${lvl.glow}40, 0 0 80px ${lvl.glow}15` : `0 0 20px ${lvl.glow}20`,
                   }}
                 >
-                  {lvl.id === 5 && (
+                  {lvl.id === 8 && (
                     <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, transparent, ${lvl.color}, transparent)` }} />
                   )}
-                  {lvl.id === 5 && (
+                  {lvl.id === 8 && (
                     <div className="absolute top-3 right-3 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full">BEST</div>
                   )}
                   <div className="p-5 flex flex-col flex-1">
@@ -313,12 +316,12 @@ export default function Index() {
                     <button
                       className="w-full pixel-btn py-3 font-orbitron font-bold text-sm transition-all"
                       style={{
-                        background: lvl.id === 5 ? `linear-gradient(135deg, #7c3aed, #a855f7)` : `${lvl.color}25`,
-                        color: lvl.id === 5 ? "#ffffff" : lvl.color,
+                        background: lvl.id === 8 ? `linear-gradient(135deg, #7c3aed, #a855f7)` : `${lvl.color}25`,
+                        color: lvl.id === 8 ? "#ffffff" : lvl.color,
                         border: `1px solid ${lvl.color}70`,
                       }}
                     >
-                      {lvl.id === 5 ? "👑 КУПИТЬ" : "КУПИТЬ"}
+                      {lvl.id === 8 ? "👑 КУПИТЬ" : "КУПИТЬ"}
                     </button>
                   </div>
                 </div>
@@ -334,11 +337,11 @@ export default function Index() {
               <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
                 <img src={MONARCH_IMG} alt="Monarch" className="w-20 h-20 rounded-xl object-cover border-2 border-purple-400 pixel-border" />
                 <div className="flex-1">
-                  <h3 className="font-orbitron text-2xl font-black text-purple-300 mb-2">👑 Монарх — Высший ранг</h3>
+                  <h3 className="font-orbitron text-2xl font-black text-purple-300 mb-2">👑 Monarch — Высший ранг</h3>
                   <p className="text-gray-300">Стань истинным Монархом теней. Эксклюзивные привилегии, уникальный внешний вид и безграничная власть на сервере.</p>
                 </div>
                 <div className="flex-shrink-0">
-                  <div className="font-orbitron text-4xl font-black text-purple-400 mb-2">3000₽</div>
+                  <div className="font-orbitron text-4xl font-black text-purple-400 mb-2">4000₽</div>
                   <button className="pixel-btn bg-purple-600 hover:bg-purple-500 text-white font-bold px-8 py-3 transition-all shadow-glow-purple">
                     Стать Монархом
                   </button>
